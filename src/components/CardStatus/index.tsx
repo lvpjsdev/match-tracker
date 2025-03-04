@@ -1,29 +1,33 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-
-enum MATCH_STATUS {
-  LIVE = 'Live',
-  FINISHED = 'Finished',
-  PREPARING = 'Match preparing',
-}
+import { MatchStatus } from '../../api/types';
 
 interface Props {
-  status: MATCH_STATUS;
+  status: MatchStatus;
 }
 
-const getBgColor = (status: MATCH_STATUS) => {
+const getStyles = (status: MatchStatus) => {
   switch (status) {
-    case MATCH_STATUS.LIVE:
-      return 'rgba(67, 173, 40, 1)';
+    case MatchStatus.Ongoing:
+      return `
+        background-color: rgba(67, 173, 40, 1);
+        content: 'Live';
+      `;
       break;
-    case MATCH_STATUS.FINISHED:
-      return 'rgba(235, 2, 55, 1)';
+    case MatchStatus.Finished:
+      return `
+        background-color: rgba(235, 2, 55, 1);
+        content: 'Finished';
+      `;
       break;
-    case MATCH_STATUS.PREPARING:
-      return 'rgba(235, 100, 2, 1)';
+    case MatchStatus.Scheduled:
+      return `
+        background-color: rgba(235, 100, 2, 1);
+        content: 'Match preparing';
+      `;
       break;
     default:
-      return 'rgba(0, 0, 0, 1)';
+      return ';';
       break;
   }
 };
@@ -33,9 +37,9 @@ const StyledDiv = styled.div<{ $status: MATCH_STATUS }>`
   border-radius: 4px;
   min-width: 92px;
   color: rgba(255, 255, 255, 1);
-  background-color: ${({ $status }) => getBgColor($status)};
   font-weight: 600;
   font-size: 12px;
+  ${({ $status }) => getStyles($status)}
 `;
 
 export const CardStatus: FC<Props> = ({ status }) => {

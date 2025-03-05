@@ -1,4 +1,4 @@
-import LoadingIcon from '../../../assets/loading.svg?react';
+import LoadingIcon from '../../assets/loading.svg?react';
 import styled, { keyframes } from 'styled-components';
 
 const rotate = keyframes`

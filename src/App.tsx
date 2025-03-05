@@ -3,17 +3,17 @@ import { fetchMatches } from './api/api';
 import { Loader } from './components/Loader';
 import { ErrorComponent } from './components/ErrorComponent';
 import { MatchCard } from './components/MatchCard';
+import { Header } from './components/Header';
 
 function App() {
-  const { data, isFetching, isError } = useQuery({
+  const { data, isFetching, isError, refetch } = useQuery({
     queryKey: ['matches'],
     queryFn: fetchMatches,
   });
 
   return (
     <>
-      {isError && <ErrorComponent />}
-      {isFetching && <Loader />}
+      <Header isDisabled={isFetching} isError={isError} onRetry={refetch} />
       <>
         {data?.data.matches.map((match, index) => (
           <MatchCard

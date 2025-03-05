@@ -36,7 +36,6 @@ const Score = styled.span`
 
 const WrapperCard = styled.section`
   display: flex;
-  width: 100%;
   height: 87px;
   padding: 16px 36px;
   border-radius: 4px;

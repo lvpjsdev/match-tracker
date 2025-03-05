@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import AlertIcon from '../../assets/alert-triangle.svg';
+import AlertIcon from '../../assets/alert-triangle.svg?react';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -9,14 +9,11 @@ const StyledDiv = styled.div`
   border-radius: 4px;
   padding: 14px 24px;
   background-color: rgba(15, 19, 24, 1);
-
-  &:not(:first-child) {
-    margin-left: 10px;
-  }
+  gap: 10px;
 `;
 
 const StyledSpan = styled.span`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 22px;
 `;

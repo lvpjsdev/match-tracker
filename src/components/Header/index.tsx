@@ -17,13 +17,28 @@ const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 25px;
+  gap: 10px;
+`;
+
+const StyledH1 = styled.h1`
+  margin: 0;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
 `;
 
 export const Header: FC<Props> = ({ isError, isDisabled, onRetry }) => {
   return (
     <StyledHeader>
-      <img height={32} width={257} src={logo} />
-      <div>
+      <StyledH1>
+        <img height={24} width={257} src={logo} alt='Match Tracker' />
+      </StyledH1>
+      <StyledDiv>
         {isError && <ErrorComponent />}
         <Button
           disabled={isDisabled}
@@ -32,7 +47,7 @@ export const Header: FC<Props> = ({ isError, isDisabled, onRetry }) => {
         >
           Обновить
         </Button>
-      </div>
+      </StyledDiv>
     </StyledHeader>
   );
 };

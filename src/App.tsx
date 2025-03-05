@@ -11,6 +11,8 @@ function App() {
     queryFn: fetchMatches,
   });
 
+  console.log(isError);
+
   return (
     <>
       <Header isDisabled={isFetching} isError={isError} onRetry={refetch} />

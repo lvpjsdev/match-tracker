@@ -32,10 +32,10 @@ const getStyles = (status: MatchStatus) => {
   }
 };
 
-const StyledDiv = styled.div<{ $status: MATCH_STATUS }>`
-  padding: 6px 21px;
+const StyledDiv = styled.div<{ $status: MatchStatus }>`
+  padding: 5px 21px;
   border-radius: 4px;
-  min-width: 92px;
+  min-width: 50px;
   color: rgba(255, 255, 255, 1);
   font-weight: 600;
   font-size: 12px;

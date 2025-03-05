@@ -17,7 +17,9 @@ const CommandWrapper = styled.section<{ $isRevers?: boolean }>`
   flex-direction: ${({ $isRevers = false }) =>
     $isRevers ? 'row-reverse' : 'row'};
   justify-content: ${({ $isRevers = false }) => ($isRevers ? 'end' : 'start')};
-  font-weight: 600;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
   font-size: 16px;
 `;
 
@@ -32,12 +34,14 @@ const Score = styled.span`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
+  margin-bottom: 2px;
 `;
 
 const WrapperCard = styled.section`
   display: flex;
-  height: 87px;
+  height: 52px;
   padding: 16px 36px;
+  margin-bottom: 15px;
   border-radius: 4px;
   flex-direction: row;
   align-items: center;
@@ -56,12 +60,10 @@ export const MatchCard: FC<Props> = ({
     <WrapperCard>
       <CommandWrapper>
         <TeamIcon />
-        <span>{homeTeamName}</span>
+        <div>{homeTeamName}</div>
       </CommandWrapper>
       <StatusWrapper>
-        <Score>
-          {homeScore}:{awayScore}
-        </Score>
+        <Score>{`${homeScore} : ${awayScore}`}</Score>
         <CardStatus status={status} />
       </StatusWrapper>
       <CommandWrapper $isRevers>

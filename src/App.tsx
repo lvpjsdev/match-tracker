@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchMatches } from './api/api';
-import { Loader } from './components/Loader';
-import { ErrorComponent } from './components/ErrorComponent';
 import { MatchCard } from './components/MatchCard';
 import { Header } from './components/Header';
 
